@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
-import { Button } from 'react-native-paper';
+import { StyleSheet, View } from 'react-native';
+import { Button, Text } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { logout } from '../../store/thunks/authThunk';
@@ -14,7 +14,7 @@ export const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Welcome {username}</Text>
+      <Text variant="titleLarge">Welcome {username}</Text>
       <Button
         style={styles.button}
         icon="logout"

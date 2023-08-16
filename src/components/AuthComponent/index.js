@@ -32,12 +32,14 @@ export const AuthComponent = ({
           label="Username"
           value={username}
           error={isError}
+          onFocus={() => setUsername('')}
           onChangeText={setUsername}
         />
         <TextInput
           label="Password"
           value={password}
           error={isError}
+          onFocus={() => setPassword('')}
           onChangeText={setPassword}
         />
         <Button
