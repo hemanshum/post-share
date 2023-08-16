@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-get-random-values';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Parse from 'parse/react-native.js';
+import { PaperProvider } from 'react-native-paper';
+import { Provider } from 'react-redux';
+
+import MainNav from './src/navigation';
+import { store } from './src/store';
+
+//Initializing the SDK
+Parse.setAsyncStorage(AsyncStorage);
+Parse.initialize('myAppId');
+Parse.serverURL = 'http://localhost:1337/parse';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <PaperProvider>
+        <MainNav />
+      </PaperProvider>
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
